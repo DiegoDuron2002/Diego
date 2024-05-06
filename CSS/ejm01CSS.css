@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#Sp{
+
+    text-align: center;
+   font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+header, nav, main, footer {
+    padding: 10px; /*para los 4 lados */
+    margin-bottom: 10px;  /*abajo en relación al siguiente elemento*/
+    font-size: 19px ;
+    background-color: #7c7786;
+    border: 1px solid #e4e4e8;
+}
+
+/* Estilos sólo para header */
+header  {
+    text-align: center;
+    background-color: #1f236b;
+    color: rgb(240, 241, 243);
+    font-size:40px;
+    margin-bottom: 20px; 
+}
+
+/*Todos los elementos ul que están dentro de un elemento nav*/
+nav ul {
+    list-style-type: none; /*quitar los estilos de lista 
+                           predeterminados en elementos <ul>*/
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline; /*hará que se muestren en una línea horizontal,
+                     uno al lado del otro, en lugar de en
+                      una lista vertical.*/
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #eceff1;
+}
+
+/* Estilos para los artículos */
+article {
+    margin-bottom: 10px;
+}
+
+article h2 {
+    color: #80028e;
+}
+
+article p {
+    color: #666;
+}
+
+/* Estilos para el footer */
+footer {
+    text-align: center;
+    color: #5c5c5c;
+    font-size: 15px;
+}
+
+#Justificado  {
+    color: rgb(255, 253, 253);
+    font-family:Arial, Helvetica, sans-serif;
+   
+    top: 10px; /* Ajusta la distancia desde la parte superior de la pantalla */
+    left: 10px;
+      text-align: justify;
+      font-size:20px;
+      margin-right: 10px;
+      margin-left: 10px;
+    
+      
+}
+
+#Video{
+    color: black;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+
+legend{
+
+    color: rgb(24, 23, 23);
+    font-family:Arial Black;
+    
+      text-align: justify;
+      font-size:30px;
+
+}
+
+.imagen2{
+
+    margin-right: 10px ;
+    margin-left: 70px; 
+  
+}
+
+.imagen{
+
+    float: right;
+  margin-right: 10px ;
+    margin-left: 70px; 
+  
+
+}
+
+
