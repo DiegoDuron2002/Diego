@@ -1,0 +1,269 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPYgfkHdGRRqyP+XqHJEZPT",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DiegoDuron2002/Diego/blob/main/Apuntes%20del%2023/09\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Cargamos las librerias Pandas y mumpy**\n"
+      ],
+      "metadata": {
+        "id": "DyiYO8HPp36J"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np"
+      ],
+      "metadata": {
+        "id": "kvP6KLWwp_c1"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Crear un DataFrame con datos sucios**\n"
+      ],
+      "metadata": {
+        "id": "kVKhcwXhpI9M"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [],
+      "metadata": {
+        "id": "Nth4E984sjFS"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "\n",
+        "\n",
+        "df = pd. DataFrame ({\n",
+        "'A': [1, 2, np. nan, 4, 5],\n",
+        "'B': [5, 6, 7, np. nan, 9],\n",
+        "'C': ['a','b','c','d','e'],\n",
+        "'D': ['foo', 'bar', 'foo', 'bar', 'Foo']\n",
+        "})\n",
+        "print (\"DataFrame original:\")\n",
+        "print (df)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Aetqhk3OpO4L",
+        "outputId": "2f6a2496-29a5-479f-9bc1-614f5de19867"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame original:\n",
+            "     A    B  C    D\n",
+            "0  1.0  5.0  a  foo\n",
+            "1  2.0  6.0  b  bar\n",
+            "2  NaN  7.0  c  foo\n",
+            "3  4.0  NaN  d  bar\n",
+            "4  5.0  9.0  e  Foo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**DataFrame limpia**"
+      ],
+      "metadata": {
+        "id": "2LJDQIg3qp28"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "df_clean = df.dropna()\n",
+        "print(\"\\nDataFrame sin filas nulas:\")\n",
+        "print(df_clean)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sJsDT6N1qu8p",
+        "outputId": "68149703-aafd-4f78-cdc8-f45e1aa554f1"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "DataFrame sin filas nulas\n",
+            "     A    B  C    D\n",
+            "0  1.0  5.0  a  foo\n",
+            "1  2.0  6.0  b  bar\n",
+            "4  5.0  9.0  e  Foo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Rellenar valores Nulos**"
+      ],
+      "metadata": {
+        "id": "GIRLmKRvrTUU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#Reemplaza y rellena todos los Na por mean  que es el promedio en A y en B los rellena con la media\n",
+        "\n",
+        "df_filled = df. fillna(value={'A': df['A']. mean(), 'B': df['B']. median ()})\n",
+        "print(\" \\nDataFrame con valores nulos rellenados:\")\n",
+        "print(df_filled)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "uyuFGUT1rV0w",
+        "outputId": "ac407c85-d3e2-44c3-ebbd-182f34decea9"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            " \n",
+            "DataFrame con valores nulos rellenados:\n",
+            "     A    B  C    D\n",
+            "0  1.0  5.0  a  foo\n",
+            "1  2.0  6.0  b  bar\n",
+            "2  3.0  7.0  c  foo\n",
+            "3  4.0  6.5  d  bar\n",
+            "4  5.0  9.0  e  Foo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Eliminar repetidos**"
+      ],
+      "metadata": {
+        "id": "kRqoLh0rsxST"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_no_duplicates = df.drop_duplicates(subset=['D'])\n",
+        "print(\"\\nDataFrame sin duplicados en la columna D:\")\n",
+        "print(df_no_duplicates)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HMOvgLaas1Ye",
+        "outputId": "9c2e92ee-cfd7-4cce-ab46-83cdfebc71e6"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "DataFrame sin duplicados en la columna D:\n",
+            "     A    B  C    D\n",
+            "0  1.0  5.0  a  foo\n",
+            "1  2.0  6.0  b  bar\n",
+            "4  5.0  9.0  e  Foo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Renombrar Columnas**"
+      ],
+      "metadata": {
+        "id": "oIVyhrV_ujuV"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_rename = df.rename(columns={'A':'Alpha','B': 'Beta',\n",
+        "                               'C':'Charllie','D':'Delta'})\n",
+        "print(\"DataFrame con columnas renombradas\")\n",
+        "print(df_rename)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0ikMQl-_um3V",
+        "outputId": "6034311b-2590-4f60-c4f2-d1d72322ffd0"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame con columnas renombradas\n",
+            "   Alpha  Beta Charllie Delta\n",
+            "0    1.0   5.0        a   foo\n",
+            "1    2.0   6.0        b   bar\n",
+            "2    NaN   7.0        c   foo\n",
+            "3    4.0   NaN        d   bar\n",
+            "4    5.0   9.0        e   Foo\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
