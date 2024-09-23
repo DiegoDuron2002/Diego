@@ -1,0 +1,161 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPvkzuz7RlIsQ09j3kHb80h",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/DiegoDuron2002/Diego/blob/main/Operaciones%20B%C3%A1sicas\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Operaciones Básicas**"
+      ],
+      "metadata": {
+        "id": "7AeOBOOJwHKb"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "\n",
+        "# Crear el DataFrame\n",
+        "df = pd.DataFrame({\n",
+        "    'Nombre': ['Ana', 'Juan', 'María', 'Carlos', 'Sofía'],\n",
+        "    'Edad': [25, 30, 22, 28, 35],\n",
+        "    'Ciudad': ['Madrid', 'Barcelona', 'Madrid', 'Valencia', 'Barcelona'],\n",
+        "    'Puntuación': [85, 92, 78, 95, 88]\n",
+        "})\n",
+        "\n",
+        "# Mostrar el DataFrame original\n",
+        "print(\"DataFrame original:\")\n",
+        "print(df)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-Eo8XOP7wKYq",
+        "outputId": "8004aa26-9839-439c-9624-c8783397294e"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame original:\n",
+            "   Nombre  Edad     Ciudad  Puntuación\n",
+            "0     Ana    25     Madrid          85\n",
+            "1    Juan    30  Barcelona          92\n",
+            "2   María    22     Madrid          78\n",
+            "3  Carlos    28   Valencia          95\n",
+            "4   Sofía    35  Barcelona          88\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Filtrado**"
+      ],
+      "metadata": {
+        "id": "FdUWoTu2wmB5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "mayores_25=df[df['Edad']>25]\n",
+        "print(\"\\Personas mayores a 25 años:\")\n",
+        "print ( mayores_25)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2GqcRIEwwo_o",
+        "outputId": "4b47fd19-1b72-450b-e7a8-df67f8ebc5d2"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\\Personas mayores a 25 años:\n",
+            "   Nombre  Edad     Ciudad  Puntuación\n",
+            "1    Juan    30  Barcelona          92\n",
+            "3  Carlos    28   Valencia          95\n",
+            "4   Sofía    35  Barcelona          88\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Agrupación y Agregación**\n"
+      ],
+      "metadata": {
+        "id": "epWW62NhxPls"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Filtrar el DataFrame para personas mayores de 25 años y agrupar por 'Ciudad', luego obtener la puntuación máxima\n",
+        "resultado = df[df['Edad'] > 25].groupby('Ciudad')['Puntuación'].max()\n",
+        "\n",
+        "# Mostrar el resultado\n",
+        "print(\"\\nMáxima puntuación por ciudad para personas mayores de 25 años:\")\n",
+        "print(resultado)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jE73Sk6exXrj",
+        "outputId": "2be3c301-ca15-4801-9af9-0a8d6bfc300a"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "Máxima puntuación por ciudad para personas mayores de 25 años:\n",
+            "Ciudad\n",
+            "Barcelona    92\n",
+            "Valencia     95\n",
+            "Name: Puntuación, dtype: int64\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
